@@ -1,0 +1,14 @@
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.csprojAssemblyReference.cache
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.Properties.Resources.resources
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.csproj.GenerateResource.cache
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\bin\Debug\PersonalCalendar.exe.config
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\bin\Debug\PersonalCalendar.exe
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\bin\Debug\PersonalCalendar.pdb
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.exe
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.pdb
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.EventView.resources
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.MainForm.resources
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.EventCreationView.resources
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.ErrorView.resources
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.ConfirmationView.resources
+C:\Users\jackh\source\repos\PersonalCalendar\PersonalCalendar\obj\Debug\PersonalCalendar.EventEditView.resources

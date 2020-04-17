@@ -59,6 +59,7 @@
             this.ContinueButton.TabIndex = 2;
             this.ContinueButton.Text = "OK";
             this.ContinueButton.UseVisualStyleBackColor = true;
+            this.ContinueButton.Click += new System.EventHandler(this.ContinueButton_Click);
             // 
             // ErrorView
             // 

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PersonalCalendar
@@ -15,7 +8,7 @@ namespace PersonalCalendar
         private MainForm parentForm;
         public EventCreationView(MainForm parent)
         {
-            this.parentForm = parent;
+            parentForm = parent;
             InitializeComponent();
         }
 
@@ -28,7 +21,9 @@ namespace PersonalCalendar
             string attendees = AttendeesTextBox.Text;
             string description = DescriptionTextBox.Text;
 
-            parentForm.AddEvent(new Event(title, location, startTime, endTime, attendees, description));
+            Event newEvent = new Event(title, location, startTime, endTime, attendees, description);
+            Event.InsertEvent(newEvent, parentForm.GetSelectedDate(), parentForm);
+
             parentForm.Controls.Remove(this);
         }
 

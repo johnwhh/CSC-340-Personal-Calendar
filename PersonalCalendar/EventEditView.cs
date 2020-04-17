@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PersonalCalendar
@@ -13,11 +6,11 @@ namespace PersonalCalendar
     public partial class EventEditView : UserControl
     {
         private MainForm parentForm;
-        private EventView eventView;
-        public EventEditView(EventView eventView, MainForm parent, Event newEvent)
+        private Event oldEvent;
+        public EventEditView(MainForm parent, Event newEvent)
         {
-            this.eventView = eventView;
-            this.parentForm = parent;
+            parentForm = parent;
+            oldEvent = newEvent;
             InitializeComponent();
             TitleTextBox.Text = newEvent.title;
             LocationTextBox.Text = newEvent.location;
@@ -29,7 +22,7 @@ namespace PersonalCalendar
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            eventView.enableButtons(true);
+            parentForm.ToggleButtons(true);
             parentForm.Controls.Remove(this);
         }
 
@@ -42,9 +35,12 @@ namespace PersonalCalendar
             string attendees = AttendeesTextBox.Text;
             string description = DescriptionTextBox.Text;
             Event newEvent = new Event(title, location, startTime, endTime, attendees, description);
-            eventView.UpdateEventView(newEvent);
-            eventView.enableButtons(true);
+
+            parentForm.ToggleButtons(true);
             parentForm.Controls.Remove(this);
+
+            Event.UpdateEvent(oldEvent, newEvent, parentForm.GetSelectedDate(), parentForm);
+            parentForm.UpdateEventsPanel();
         }
     }
 }

@@ -1,26 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PersonalCalendar
 {
     public partial class MainForm : Form
     {
+        private bool isViewingMonthly = false;
         public MainForm()
         {
             InitializeComponent();
+            ShowDailyEvents();
         }
 
-        private void calendar_DateChanged(object sender, DateRangeEventArgs e)
+        public void Calendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            MonthCalendar calendar = sender as MonthCalendar;
-            //MessageBox.Show(calendar.SelectionEnd.ToString());
+            UpdateEventsPanel();
+        }
+
+        public void UpdateEventsPanel()
+        {
+            if (!isViewingMonthly)
+                ShowDailyEvents();
+            else
+                ShowMonthlyEvents();
+        }
+
+        private void ShowDailyEvents()
+        {
+            EventsPanel.Controls.Clear();
+
+            string date = GetSelectedDate();
+            foreach (Event @event in Event.GetDailyEvents(date))
+            {
+                AddEvent(@event);
+            }
+        }
+
+        private void ShowMonthlyEvents()
+        {
+            string month = Calendar.SelectionEnd.Month.ToString();
+            string year = Calendar.SelectionEnd.Year.ToString();
+            EventsPanel.Controls.Clear();
+            foreach (Event @event in Event.GetMonthlyEvents(month, year))
+            {
+                AddEvent(@event);
+            }
+        }
+
+        public string GetSelectedDate()
+        {
+            return Calendar.SelectionEnd.Year.ToString() + "-" + Calendar.SelectionEnd.Month.ToString() + "-" + Calendar.SelectionEnd.Day.ToString();
         }
 
         private void AddEventButton_Click(object sender, EventArgs e)
@@ -28,7 +58,7 @@ namespace PersonalCalendar
             EventCreationView eventCreationView = new EventCreationView(this);
 
             Controls.Add(eventCreationView);
-            eventCreationView.Location = new Point(this.Width / 2 - (eventCreationView.Width / 2), this.Height / 2 - (eventCreationView.Height / 2));
+            eventCreationView.Location = new Point(Width / 2 - (eventCreationView.Width / 2), Height / 2 - (eventCreationView.Height / 2));
             eventCreationView.BringToFront();
         }
         
@@ -36,6 +66,50 @@ namespace PersonalCalendar
         {
             EventView newEventView = new EventView(this, newEvent);
             EventsPanel.Controls.Add(newEventView);
+        }
+
+        private void MonthlyEventsButton_Click(object sender, EventArgs e)
+        {
+            isViewingMonthly = !isViewingMonthly;
+
+            
+
+            if (isViewingMonthly)
+            {
+                MonthlyEventsButton.Text = "View Daily Events";
+                ShowMonthlyEvents();
+                ToggleEditButtons(false);
+            } else
+            {
+                MonthlyEventsButton.Text = "View Monthly Events";
+                ShowDailyEvents();
+                ToggleEditButtons(true);
+            }
+
+        }
+
+        public void ToggleButtons(bool state)
+        {
+            AddEventButton.Enabled = state;
+            MonthlyEventsButton.Enabled = state;
+
+            foreach (Control control in EventsPanel.Controls)
+            {
+                EventView eventView = control as EventView;
+                
+                eventView.ToggleEditButton(state);
+                eventView.ToggleDeleteButton(state);
+            }
+        }
+
+        public void ToggleEditButtons(bool state)
+        {
+            foreach (Control control in EventsPanel.Controls)
+            {
+                EventView eventView = control as EventView;
+
+                eventView.ToggleEditButton(state);
+            }
         }
     }
 }

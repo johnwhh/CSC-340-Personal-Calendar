@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PersonalCalendar
 {
     public partial class ErrorView : UserControl
     {
-        public ErrorView()
+        private MainForm parentForm;
+        public ErrorView(MainForm parent)
         {
+            parentForm = parent;
             InitializeComponent();
+        }
+
+        private void ContinueButton_Click(object sender, EventArgs e)
+        {
+            parentForm.ToggleButtons(true);
+            parentForm.Controls.Remove(this);
         }
     }
 }

@@ -50,6 +50,7 @@
             this.YesButton.TabIndex = 1;
             this.YesButton.Text = "Yes";
             this.YesButton.UseVisualStyleBackColor = true;
+            this.YesButton.Click += new System.EventHandler(this.YesButton_Click);
             // 
             // NoButton
             // 
@@ -59,6 +60,7 @@
             this.NoButton.TabIndex = 2;
             this.NoButton.Text = "No";
             this.NoButton.UseVisualStyleBackColor = true;
+            this.NoButton.Click += new System.EventHandler(this.NoButton_Click);
             // 
             // ConfirmationView
             // 

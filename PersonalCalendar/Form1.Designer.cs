@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.calendar = new System.Windows.Forms.MonthCalendar();
+            this.Calendar = new System.Windows.Forms.MonthCalendar();
             this.AddEventButton = new System.Windows.Forms.Button();
             this.EventsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.MonthlyEventsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // calendar
+            // Calendar
             // 
-            this.calendar.Location = new System.Drawing.Point(280, 7);
-            this.calendar.Name = "calendar";
-            this.calendar.TabIndex = 0;
-            this.calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendar_DateChanged);
+            this.Calendar.Location = new System.Drawing.Point(280, 7);
+            this.Calendar.Name = "Calendar";
+            this.Calendar.TabIndex = 0;
+            this.Calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.Calendar_DateChanged);
             // 
             // AddEventButton
             // 
@@ -67,8 +67,9 @@
             this.MonthlyEventsButton.Name = "MonthlyEventsButton";
             this.MonthlyEventsButton.Size = new System.Drawing.Size(152, 23);
             this.MonthlyEventsButton.TabIndex = 5;
-            this.MonthlyEventsButton.Text = "View Daily Events";
+            this.MonthlyEventsButton.Text = "View Monthly Events";
             this.MonthlyEventsButton.UseVisualStyleBackColor = true;
+            this.MonthlyEventsButton.Click += new System.EventHandler(this.MonthlyEventsButton_Click);
             // 
             // MainForm
             // 
@@ -78,7 +79,7 @@
             this.Controls.Add(this.MonthlyEventsButton);
             this.Controls.Add(this.EventsPanel);
             this.Controls.Add(this.AddEventButton);
-            this.Controls.Add(this.calendar);
+            this.Controls.Add(this.Calendar);
             this.Name = "MainForm";
             this.Text = "Personal Calendar";
             this.ResumeLayout(false);
@@ -87,7 +88,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar calendar;
+        private System.Windows.Forms.MonthCalendar Calendar;
         private System.Windows.Forms.Button AddEventButton;
 
         public System.Windows.Forms.Panel getEventsPanel()

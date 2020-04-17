@@ -137,12 +137,12 @@
             // 
             // NewTitleLabel
             // 
-            this.NewTitleLabel.AutoSize = true;
-            this.NewTitleLabel.Location = new System.Drawing.Point(107, 13);
+            this.NewTitleLabel.Location = new System.Drawing.Point(6, 12);
             this.NewTitleLabel.Name = "NewTitleLabel";
-            this.NewTitleLabel.Size = new System.Drawing.Size(37, 13);
+            this.NewTitleLabel.Size = new System.Drawing.Size(236, 13);
             this.NewTitleLabel.TabIndex = 13;
             this.NewTitleLabel.Text = "Lunch";
+            this.NewTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DescriptionLabel
             // 

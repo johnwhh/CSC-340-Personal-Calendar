@@ -51,6 +51,7 @@ namespace PersonalCalendar
                 cmd.Parameters.AddWithValue("@description", newEvent.description);
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.ExecuteNonQuery();
+                cmd.Dispose();
             }
             catch (Exception ex)
             {
@@ -141,10 +142,10 @@ namespace PersonalCalendar
             {
                 string title = row["title"].ToString();
                 string location = row["location"].ToString();
-                string startTime = row["startTime"].ToString(); ;
-                string endTime = row["endTime"].ToString(); ;
-                string attendees = row["attendees"].ToString(); ;
-                string description = row["description"].ToString(); ;
+                string startTime = row["startTime"].ToString();
+                string endTime = row["endTime"].ToString();
+                string attendees = row["attendees"].ToString();
+                string description = row["description"].ToString();
                 Event newEvent = new Event(title, location, startTime, endTime, attendees, description);
                 eventList.Add(newEvent);
             }

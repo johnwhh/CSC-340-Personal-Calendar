@@ -24,11 +24,13 @@ namespace PersonalCalendar
             Event newEvent = new Event(title, location, startTime, endTime, attendees, description);
             Event.InsertEvent(newEvent, parentForm.GetSelectedDate(), parentForm);
 
+            parentForm.ToggleButtons(true);
             parentForm.Controls.Remove(this);
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            parentForm.ToggleButtons(true);
             parentForm.Controls.Remove(this);
         }
     }

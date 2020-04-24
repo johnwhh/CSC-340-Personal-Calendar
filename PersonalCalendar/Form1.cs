@@ -57,6 +57,8 @@ namespace PersonalCalendar
         {
             EventCreationView eventCreationView = new EventCreationView(this);
 
+            ToggleButtons(false);
+
             Controls.Add(eventCreationView);
             eventCreationView.Location = new Point(Width / 2 - (eventCreationView.Width / 2), Height / 2 - (eventCreationView.Height / 2));
             eventCreationView.BringToFront();
@@ -71,8 +73,6 @@ namespace PersonalCalendar
         private void MonthlyEventsButton_Click(object sender, EventArgs e)
         {
             isViewingMonthly = !isViewingMonthly;
-
-            
 
             if (isViewingMonthly)
             {
@@ -92,7 +92,7 @@ namespace PersonalCalendar
         {
             AddEventButton.Enabled = state;
             MonthlyEventsButton.Enabled = state;
-
+            Calendar.Enabled = state;
             foreach (Control control in EventsPanel.Controls)
             {
                 EventView eventView = control as EventView;
